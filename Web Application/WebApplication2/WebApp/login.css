@@ -1,0 +1,77 @@
+﻿﻿.form-content {
+    justify-content: center;
+}
+
+
+.login-picture {
+    background-image: url("icons/Other/flippin burgers.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 40%;
+}
+
+.navbar-customer {
+    display: none;
+}
+
+.copywrite {
+    width: 9.5rem;
+    font-size: 1.20rem;
+    position: absolute;
+    bottom: 20%;
+}
+
+.form {
+    height: 34.938rem;
+    width: 28.188rem;
+}
+
+.forgot-password {
+    color: var(--lightBrown);
+}
+
+.next-btn {
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width:768px) {
+    .login-picture {
+        display: none;
+    }
+
+    .form-content {
+        align-items: center;
+    }
+
+    .form {
+        width: 22rem;
+    }
+
+    .content {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:958px) {
+    .form {
+        width: 20rem;
+    }
+
+    .copywrite {
+        font-size: 1rem;
+        width: 9rem;
+    }
+}
+
+
+@media screen and (max-width:1280px) {
+    .form {
+        width: 25rem;
+    }
+
+    .copywrite {
+        font-size: 1rem;
+        width: 9rem;
+    }
+}

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Database1" Class="MrsTreetsDataClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Database1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[USER]" Member="USERs">
+    <Type Name="USER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[FISRT NAME]" Member="FISRT_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[LAST NAME]" Member="LAST_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="[CELL NUMBER]" Member="CELL_NUMBER" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="[DATE OF BIRTH]" Member="DATE_OF_BIRTH" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GENDER" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="[TYPE OF]" Member="TYPE_OF" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="[REGISTER DATE]" Member="REGISTER_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ISACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="USER_BUSINESS" Member="BUSINESSes" ThisKey="ID" OtherKey="OWNER_ID" Type="BUSINESS" />
+      <Association Name="USER_CART" Member="CARTs" ThisKey="ID" OtherKey="USER_ID" Type="CART" />
+      <Association Name="USER_INVOICE" Member="INVOICEs" ThisKey="ID" OtherKey="USER_ID" Type="INVOICE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BRIDGE" Member="BRIDGEs">
+    <Type Name="BRIDGE">
+      <Column Name="[CART ID]" Member="CART_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[PRODUCT ID]" Member="PRODUCT_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QUANTITY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PRICE" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="CART_BRIDGE" Member="CART" ThisKey="CART_ID" OtherKey="ID" Type="CART" IsForeignKey="true" />
+      <Association Name="PRODUCT_BRIDGE" Member="PRODUCT" ThisKey="PRODUCT_ID" OtherKey="ID" Type="PRODUCT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BUSINESS" Member="BUSINESSes">
+    <Type Name="BUSINESS">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[OWNER ID]" Member="OWNER_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESS" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IMAGE" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ISACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="BUSINESS_OPERATING_HOUR" Member="OPERATING_HOURs" ThisKey="ID" OtherKey="BUSINESS_ID" Type="OPERATING_HOUR" />
+      <Association Name="BUSINESS_PRODUCT" Member="PRODUCTs" ThisKey="ID" OtherKey="BUSINESS_ID" Type="PRODUCT" />
+      <Association Name="USER_BUSINESS" Member="USER" ThisKey="OWNER_ID" OtherKey="ID" Type="USER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CART" Member="CARTs">
+    <Type Name="CART">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[USER ID]" Member="USER_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[PROD SUBTOTAL]" Member="PROD_SUBTOTAL" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="[SERVICES SUBTOTAL]" Member="SERVICES_SUBTOTAL" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TAX" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TOTAL" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="DISCOUNT" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="[TOTAL PAID]" Member="TOTAL_PAID" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="[BUSINESS ID]" Member="BUSINESS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CART_BRIDGE" Member="BRIDGEs" ThisKey="ID" OtherKey="CART_ID" Type="BRIDGE" />
+      <Association Name="USER_CART" Member="USER" ThisKey="USER_ID" OtherKey="ID" Type="USER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.INVOICE" Member="INVOICEs">
+    <Type Name="INVOICE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[BUSINESS ID]" Member="BUSINESS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[USER ID]" Member="USER_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[PROD SUBTOTAL]" Member="PROD_SUBTOTAL" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TAX" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="[SERVICES SUBTOTAL]" Member="SERVICES_SUBTOTAL" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TOTAL" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="DISCOUNT" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="[TOTAL PAID]" Member="TOTAL_PAID" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="[DATE TIME]" Member="DATE_TIME" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="[PAYMENT METHOD]" Member="PAYMENT_METHOD" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="INVOICE_ORDERITEM" Member="ORDERITEMs" ThisKey="ID" OtherKey="INVOICE_ID" Type="ORDERITEM" />
+      <Association Name="USER_INVOICE" Member="USER" ThisKey="USER_ID" OtherKey="ID" Type="USER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[OPERATING HOURS]" Member="OPERATING_HOURs">
+    <Type Name="OPERATING_HOUR">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[BUSINESS ID]" Member="BUSINESS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DAY" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="[OPEN TIME]" Member="OPEN_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="[CLOSE TIME]" Member="CLOSE_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="BUSINESS_OPERATING_HOUR" Member="BUSINESS" ThisKey="BUSINESS_ID" OtherKey="ID" Type="BUSINESS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRODUCT" Member="PRODUCTs">
+    <Type Name="PRODUCT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[BUSINESS ID]" Member="BUSINESS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PRICE" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ALLERGIES" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CATEGORY" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ISACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="PRODUCT_BRIDGE" Member="BRIDGEs" ThisKey="ID" OtherKey="PRODUCT_ID" Type="BRIDGE" />
+      <Association Name="BUSINESS_PRODUCT" Member="BUSINESS" ThisKey="BUSINESS_ID" OtherKey="ID" Type="BUSINESS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DISCOUNT" Member="DISCOUNTs">
+    <Type Name="DISCOUNT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[PRODUCT ID]" Member="PRODUCT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[NEW PRICE]" Member="NEW_PRICE" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="[IS ACTIVE]" Member="IS_ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ORDERITEM" Member="ORDERITEMs">
+    <Type Name="ORDERITEM">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[INVOICE ID]" Member="INVOICE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[PRODUCT NAME]" Member="PRODUCT_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[PRODUCT QUANTITY]" Member="PRODUCT_QUANTITY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[PRODUCT PRICE]" Member="PRODUCT_PRICE" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="INVOICE_ORDERITEM" Member="INVOICE" ThisKey="INVOICE_ID" OtherKey="ID" Type="INVOICE" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

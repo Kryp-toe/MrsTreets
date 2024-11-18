@@ -1,0 +1,147 @@
+﻿﻿body {
+    height: 100%;
+}
+
+.navbar {
+    display: none;
+}
+
+footer {
+    display: none;
+}
+
+.copywrite {
+    color: var(--green);
+}
+
+.content {
+    display: flex;
+    height: 110vh;
+    width: 100%;
+}
+
+.form-content {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 55%;
+}
+
+.register_copywrite {
+    text-align: center;
+    width: 45rem;
+    font-size: 1.75rem;
+}
+
+.form {
+    margin-top: 1.5rem;
+    width: 28.188rem;
+    border: 1px solid var(--lightBrown);
+    border-radius: 0.50rem;
+    color: var(--lightBrown);
+    padding: 1.50rem;
+    background-color: var(--white);
+    filter: drop-shadow(4px 10px 4px #00000031);
+}
+
+.form-name {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.50rem;
+}
+
+    .input-field label {
+        font-size: .8rem;
+        margin-bottom: .5rem;
+    }
+
+input:focus {
+    outline: none;
+}
+
+input {
+    height: 2.50rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: var(--lightBrown);
+}
+
+
+
+
+.next-btn {
+    margin-top: 1rem;
+    background-color: var(--yellow);
+    padding: 0.75rem;
+    width: 100%;
+    height: 2.50rem;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.tcs {
+    font-size: 0.75rem;
+    font-weight: lighter;
+    text-align: center;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.picture-content {
+    width: 45%;
+    background-image: url('icons/Other/potjiekos.jpg');
+    background-size: cover;
+    padding: 0;
+    height: 100%;
+}
+
+
+@media (min-width:320px) and (max-width:768px) {
+
+    .form {
+        width: 20rem;
+    }
+
+    .register_copywrite {
+        font-size: 1.5rem;
+        width: 25rem;
+    }
+
+    .picture-content {
+        display: none;
+    }
+
+    .content {
+        justify-content: center;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+    .form {
+        width: 22rem;
+    }
+
+    .register_copywrite {
+        width: 25rem;
+    }
+}
+
+
+@media (min-width:1024px) and (max-width:1440px) {
+    .form {
+        width: 25rem;
+    }
+
+    .register_copywrite {
+        width: 31rem;
+    }
+}

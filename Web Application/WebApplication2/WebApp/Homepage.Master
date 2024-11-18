@@ -1,0 +1,157 @@
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Homepage.master.cs" Inherits="WebApp.Homepage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="master.css" type="text/css">
+    
+    <%--<link rel="stylesheet" href="resturant.css" type="text/css">--%>
+    <%--<link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="catalogue.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="resturant.css">--%>
+
+        
+    
+
+    <title></title>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <nav class="navbar-customer">
+        <div class="logo" onclick="window.location.href='home.aspx'">
+            <img class="logo-img" src="icons/Other/Aunt J.svg" alt="" srcset="">
+            <h2 class="logo-txt">MrS Treets</h2>
+        </div>
+        <ul class="nav-pill-list">
+            <li><a href="home.aspx">Home</a></li>
+            <li><a href="Cart.aspx"  runat="server" id="cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><i class="fa-regular fa-user"></i></li>
+            <%--<li><a href="profile_information.aspx"  runat="server" id="A1"><i class="fa-regular fa-user"></i></a></li>--%>
+        </ul>
+    </nav>
+    <div class="side-bar-nav" id="sideNav" runat="server"><!--This is admin side--->
+        <ul class="side-pill-list">
+            <li class="pill-list-item"><a href="dashboard.aspx"><i class="fa-solid bi bi-house"></i><span>Dashboard</span></a></li>
+            <li class="pill-list-item"><a href="manage_businesses.aspx"><i class="fa-solid bi bi-shop-window"></i><span>Stores</span></a></li>
+            <li class="pill-list-item"><a href="manage_products.aspx"><i class="fa-solid bi bi-cart"></i><span>Products</span></a></li>
+            <li class="pill-list-item"><a href="manage_invoices"><i class="fa-solid bi bi-basket"></i><span>Invoices</span></a></li>
+
+        </ul>
+    </div>
+    <div class="mobile-nav" id="mobileNav" runat="server"><!--This is adimn side--->
+        <ul class="nav-list">
+           <li class="nav-list-item"><a href="Dashboard.aspx"><i class="fa-solid bi bi-house"></i><span>Dashboard</span></a></li>
+            <li class="nav-list-item"><a href="manage_businesses.aspx"><i class="fa-solid bi bi-shop-window"></i><span>Stores</span></a></li>
+            <li class="nav-list-item"><a href="manage_products.aspx"><i class="fa-solid bi bi-cart"></i><span>Products</span></a></li>
+            <li class="nav-list-item"><a href="manage_invoices"><i class="fa-solid bi bi-basket"></i><span>Invoices</span></a></li>
+ 
+        </ul>
+    </div>
+    <div class="profile-nav">
+            <div class="account-details">
+                <img src="icons/Other/User-placeholder.svg" alt="" class="user-placeholder-img">
+                <div class="manage-account" >
+                    <h2 id="userName" runat="server" class="user-name">Mista</h2>
+                    <a href="profile_information.aspx" id="manageAcclink" runat="server">Manage account</a>
+                </div>
+
+                <img src="icons/Other/X circle.svg" alt="" class="close-profile">
+            </div>
+            <ul class="profile-nav-links">
+                <li>
+                    <a href="manage_invoices.aspx"  id="invoices" runat="server">Orders
+                   
+                        <img src="icons/Other/Shopping bag.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+            <a href="SignOut.aspx" class="sign-out"  id="signOut" runat="server">Sign out</a>
+            <a href="login.aspx" class="sign-out"  id="sigIn" runat="server">Sign in</a>
+    </div>
+    <!-- NAV ENDS -->
+
+
+    <!-- Main placeholder -->
+    <form runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </form>
+    
+
+    <footer>
+        <div class="links">
+            <div class="box1">
+                <div class="logo footer-logo">
+                    <img class="logo-img" src="icons/Other/Aunt J.svg" alt="" srcset="">
+                    <h2 class="logo-txt">MrS Treets</h2>
+                </div>
+                <a class="phone-link box1-link" href="tel:0109483678"><i class="fa-solid fa-phone"></i> 010 948 3678</a>
+            </div>
+            <div class="socials box1-link">
+                <h3>Follow us</h3>
+                <a href="#" target="_blank" rel="noopener noreferrer"><i class="social-links fa-brands fa-instagram"></i> </a>
+                <a href="#" target="_blank" rel="noopener noreferrer"><i class="social-links fa-brands fa-x-twitter"></i> </a>
+                <a href="#" target="_blank" rel="noopener noreferrer"><i class="social-links fa-brands fa-linkedin"></i> </a>
+                <a href="#" target="_blank" rel="noopener noreferrer"><i class="social-links fa-brands fa-youtube"></i> </a>
+            </div>
+            <div class="box2">
+                <h3>Details</h3>
+                    
+                    <a href="#" target="_blank" rel="noopener noreferrer">About</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Sign in</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+            </div>
+            <div class="email2">
+                <label for="email">Stay in touch</label>
+                <input type="text" placeholder="Type email" name="mail" id="email">
+                <button class="contact-support">Contact Support</button>
+            </div>
+        </div>
+        <div class="email">
+            <label for="email">Stay in touch</label>
+            <input type="text" placeholder="Type email" name="mail" id="email">
+            <button class="contact-support">Contact Support</button>
+        </div>
+        
+    </footer>
+    <script>
+        //profile operations
+
+        //open profile
+        const profileNav = document.querySelector(".profile-nav");
+        const profileIcon = document.querySelector(".fa-user");
+
+        profileIcon.addEventListener("click", () => {
+            profileNav.classList.add("active-profile");
+        })
+
+        //close profile
+        const closeProfile = document.querySelector(".close-profile");
+        closeProfile.addEventListener("click", () => {
+            profileNav.classList.remove("active-profile")
+        })
+    </script>
+
+
+</body>
+</html>

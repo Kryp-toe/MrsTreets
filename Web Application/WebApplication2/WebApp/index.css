@@ -1,0 +1,67 @@
+﻿.navbar {
+    justify-content: space-between;
+}
+
+.sign-in-btn, .register-btn {
+    width: 4.5rem;
+    height: 1.7rem;
+    border-radius: .5rem;
+}
+
+.sign-in-btn {
+    border: none;
+    color: #fff;
+    background-color: var(--yellow);
+}
+
+.register-btn {
+    border: 1px solid var(--green);
+    color: var(--green);
+    background-color: var(--white);
+}
+
+.hero {
+    background-image: url("hero\ art.jpg");
+    height: 80vh;
+    background-position: center 13%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10rem;
+    margin-bottom: 5rem;
+}
+
+.copywrite {
+    font-size: 2.5rem;
+    color: var(--lightBrown);
+}
+
+.search-box {
+    background-color: #fff;
+    width: 23rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+#search {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    color: var(--lightBrown);
+}
+
+.order-btn {
+    width: 6rem;
+    height: 2.2rem;
+    font-size: .8rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: var(--yellow);
+    color: #fff;
+}

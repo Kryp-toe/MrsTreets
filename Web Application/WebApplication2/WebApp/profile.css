@@ -1,0 +1,256 @@
+﻿main {
+    padding: 1.188rem 3.188rem;
+    color: var(--lightBrown);
+}
+
+h1 {
+    margin-top: 2.2rem;
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 3.5rem;
+}
+
+.tab-links {
+    margin-top: 1rem;
+    display: flex;
+    /* flex-direction: column; */
+    gap: .3rem;
+    /* width: 100%; */
+}
+
+
+.profile-picture {
+    width: 100%;
+    height: 21.25rem;
+    border-radius: 0.50rem;
+    border-width: none;
+    padding: 1.50rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture {
+    width: 12.50rem;
+    height: 11.63rem;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    border: 8px solid #B2B2B2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .picture img {
+        width: 9rem;
+    }
+
+form {
+    margin-top: 1rem;
+}
+
+    form button:hover {
+        cursor: pointer;
+    }
+
+ /*   form input {
+        display: none;
+    }*/
+
+
+    form button {
+        padding: .5rem 1rem;
+        color: #fff;
+        background-color: var(--yellow);
+        border-radius: .5rem;
+        border: none;
+    }
+
+.tab-link {
+    background-color: #fff;
+    /* width: 100%;  */
+    /* height: 5rem;  */
+    border-radius: 0.50rem;
+    border: none;
+    padding: 1.30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+    .tab-link:hover {
+        background-color: var(--yellow);
+    }
+
+.active {
+    background-color: var(--yellow);
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.75);
+}
+
+.tab-name {
+    font-weight: 600;
+    color: var(--lightBrown);
+    display: none;
+}
+
+.profile-details {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link-name {
+    border-bottom: 1px solid var(--yellow);
+    width: 82%;
+}
+
+.icon img {
+    width: 1.4rem;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    /* width: 82%; */
+    justify-content: space-between;
+    margin-top: 2.5rem;
+}
+
+.input {
+    width: 15.00rem;
+    height: 4.38rem;
+    padding-top: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+    .input input, select {
+        margin-top: 1rem;
+        height: 2.50rem;
+        border: 1px solid #D9D9D9;
+    }
+
+.button {
+    width: 82%;
+    display: flex;
+    justify-content: center;
+    margin: 3.5rem 0;
+}
+
+.save-btn {
+    font-size: 1.00rem;
+    width: 18.75rem;
+    height: 2.50rem;
+    border-radius: 0.50rem;
+    border: none;
+    padding: 0.75rem;
+    background-color: var(--yellow);
+    color: #fff;
+}
+
+
+@media screen and (min-width:768px) {
+
+    /* .tabs{
+        align-items: end;
+        flex-direction: row;
+    }
+    
+    .profile-picture{
+        width: 14rem;
+    } */
+
+    .tab-link {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .details {
+        width: 82%;
+    }
+
+    .input {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .tabs {
+        align-items: end;
+        flex-direction: row;
+    }
+
+    .tab-links {
+        gap: 2.1rem;
+    }
+
+    .profile-picture {
+        width: 18.75rem;
+    }
+
+    .tab-link {
+        width: 8.00rem;
+        height: 18.75rem;
+    }
+
+    .icon {
+        width: 6.25rem;
+        height: 6.25rem;
+    }
+
+        .icon img {
+            width: initial;
+        }
+
+    .tab-name {
+        display: initial;
+    }
+
+    .details {
+        flex-direction: row;
+        width: 82%;
+    }
+
+    .input {
+        width: 12rem;
+    }
+}
+
+@media screen and (min-width:1280px) {
+
+    .input {
+        width: 15rem;
+    }
+
+    .tab-link {
+        width: 10.00rem;
+    }
+}
